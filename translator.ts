@@ -36,7 +36,7 @@ export class Translator {
   }
 
   async translateLabel(from: Language, label: string) {
-    const text = from.translations.get(label);
+    const text = from.translations[label];
     if (!text) {
       console.log(`Non-existent label provided`);
       return;
@@ -52,7 +52,7 @@ export class Translator {
       try {
         const translated = await this.translate(text, to.locale, from.locale);
         if (this.validate(text, translated)) {
-          to.translations.set(label, translated);
+          to.translations[label] = translated;
           to.save();
         }
       } catch (e) {
