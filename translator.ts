@@ -1,9 +1,9 @@
 import isEqual from "lodash/isEqual";
-import { ChatGPT } from "./chat-gpt";
 import { ALL_LOCALES, OPENAI_LOCALES } from "./consts";
-import { Deepl } from "./deepl";
-import { Langs } from "./langs";
+import { Languages } from "./enums/languages";
 import { Language } from "./language";
+import { ChatGPT } from "./lib/chat-gpt";
+import { Deepl } from "./lib/deepl";
 
 export class Translator {
   private chatGPT = new ChatGPT();
@@ -20,8 +20,8 @@ export class Translator {
 
   private async translate(
     text: string,
-    toLocale: Langs,
-    fromLocale: Langs
+    toLocale: Languages,
+    fromLocale: Languages
   ): Promise<string | null> {
     const service = OPENAI_LOCALES.includes(toLocale)
       ? this.chatGPT

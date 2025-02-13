@@ -1,6 +1,7 @@
 import minimist from "minimist";
 import "reflect-metadata";
-import { Langs } from "./langs";
+
+import { Languages } from "./enums/languages";
 import { Language } from "./language";
 import { Translator } from "./translator";
 
@@ -36,7 +37,7 @@ Options:
       return false;
     },
   });
-  const from = new Language(Langs.en);
+  const from = new Language(Languages.en);
   const translator = new Translator();
 
   if (args[ARGS.help]) {
