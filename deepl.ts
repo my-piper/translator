@@ -1,14 +1,16 @@
 import axios from "axios";
-import { plainToInstance, Type } from "class-transformer";
+import { Expose, plainToInstance, Type } from "class-transformer";
 import { DEEPL_API_KEY, DEEPL_API_URL } from "./consts";
 import { Langs } from "./langs";
 
 class Translation {
+  @Expose()
   @Type(() => String)
   text!: string;
 }
 
 class Response {
+  @Expose()
   @Type(() => Translation)
   translations!: Translation[];
 }

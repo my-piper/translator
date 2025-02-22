@@ -1,15 +1,17 @@
-import { plainToInstance, Type } from "class-transformer";
+import { Expose, plainToInstance, Type } from "class-transformer";
 import OpenAI from "openai";
 import { TextContentBlock } from "openai/resources/beta/threads/messages";
 import { OPENAI_API_ASSIST, OPENAI_API_KEY } from "./consts";
 import { Langs } from "./langs";
 
 class Translation {
+  @Expose()
   @Type(() => String)
   text!: string;
 }
 
 class Response {
+  @Expose()
   @Type(() => Translation)
   translations!: Translation[];
 }
