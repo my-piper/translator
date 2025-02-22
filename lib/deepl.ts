@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Expose, plainToInstance, Type } from "class-transformer";
-import { DEEPL_API_KEY, DEEPL_API_URL } from "./consts";
-import { Langs } from "./langs";
+import { DEEPL_API_KEY, DEEPL_API_URL } from "../consts";
+import { Languages } from "../enums/languages";
 
 class Translation {
   @Expose()
@@ -18,8 +18,8 @@ class Response {
 export class Deepl {
   async translate(
     text: string,
-    toLocale: Langs,
-    fromLocale: Langs = Langs.en
+    toLocale: Languages,
+    fromLocale: Languages = Languages.en
   ): Promise<string | null> {
     try {
       const { data } = await axios({
@@ -32,7 +32,8 @@ export class Deepl {
         data: {
           text: [text],
           source_lang: fromLocale.toUpperCase(),
-          target_lang: toLocale == Langs.zhCN ? "ZH" : toLocale.toUpperCase(),
+          target_lang:
+            toLocale == Languages.zhCN ? "ZH" : toLocale.toUpperCase(),
           context:
             "An image creator and editor that allows users to create custom adult imagery content.",
           preserve_formatting: true,

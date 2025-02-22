@@ -6,7 +6,7 @@ import {
 } from "class-transformer";
 import { readFileSync, writeFileSync } from "fs";
 import { LANG_FILE_PATH } from "./consts";
-import { Langs } from "./langs";
+import { Languages } from "./enums/languages";
 
 export class Locale {
   @Expose()
@@ -17,13 +17,13 @@ export class Locale {
 export class Language {
   @Expose()
   @Type(() => String)
-  locale: Langs;
+  locale: Languages;
 
   @Expose()
   @Type(() => Object)
   translations: { [key: string]: string };
 
-  constructor(locale: Langs) {
+  constructor(locale: Languages) {
     this.locale = locale;
     this.load();
   }
