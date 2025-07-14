@@ -9,7 +9,20 @@ export const DEEPL_API_URL =
 
 export const OPENAI_API_ASSIST = process.env["OPENAI_API_ASSIST"] || "xyzXYZ";
 export const OPENAI_API_KEY = process.env["OPENAI_API_KEY"] || "xyzXYZ";
-export const OPENAI_LOCALES = [Languages.zhTW, Languages.hi];
+export const OPENAI_LOCALES = [
+  Languages.ru,
+  Languages.de,
+  Languages.es,
+  Languages.ptBR,
+  Languages.fr,
+  Languages.ja,
+  Languages.ko,
+  Languages.zhCN,
+  Languages.zhTW,
+  Languages.hi,
+  Languages.tr,
+  Languages.it,
+];
 
 export const BASE_PATH = "../frontend/src/locale";
 export const LANG_FILE_PATH = (lang: string) => `${BASE_PATH}/${lang}.json`;
